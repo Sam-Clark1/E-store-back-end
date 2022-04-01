@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Tag, Product, ProductTag } = require('../../models');
+const { Tag, Product } = require('../../models');
 
 // The `/api/tags` endpoint
 
@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
   .then(dbTagData => res.json(dbTagData))
   .catch(err => {
     console.log(err);
-    res.status(400).json(err);
+    res.status(500).json(err);
   });
 });
 
@@ -54,7 +54,7 @@ router.get('/:id', (req, res) => {
   .then(dbTagData => res.json(dbTagData))
   .catch(err => {
     console.log(err);
-    res.status(400).json(err);
+    res.status(500).json(err);
   });
 });
 
